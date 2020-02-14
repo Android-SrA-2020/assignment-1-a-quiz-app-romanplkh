@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,14 +62,14 @@ class MainActivity : AppCompatActivity() {
             (questionIndex - 1) % 20;
         }
 
+      //questionIndex =  20 - abs(questionIndex - 1) % 20;
+
         updateView();
     }
 
 
     private fun answer(ans: Boolean) {
-        if (ans == true && ans == questionBank[questionIndex].answer) {
-            Toast.makeText(applicationContext, "CORRECT", Toast.LENGTH_SHORT).show();
-        } else if (ans == false && ans == questionBank[questionIndex].answer) {
+        if (ans == questionBank[questionIndex].answer) {
             Toast.makeText(applicationContext, "CORRECT", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(applicationContext, "WRONG", Toast.LENGTH_SHORT).show();
